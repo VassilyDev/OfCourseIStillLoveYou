@@ -47,7 +47,6 @@ Inside the settings.cfg file you can modify the Cameras resolution and server co
 * Create a new container - example overriding endpoint to listen everything and from port 5000: *docker run -d -p 192.168.0.14:5000:5000 ofcourseistillloveyou:server_v1.0 --port 5000 --endpoint 0.0.0.0*
 
 ## Desktop Client usage
-* To hide all the UI controls & telemetry, double click on the camera image view
 * To move the window, click and drag from the camera image view
 * To resise the window, click and drag from the resize texture corner (bottom - right corner)
 * To close the UI, press the "X" button
