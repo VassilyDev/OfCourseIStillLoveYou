@@ -48,7 +48,7 @@ public class MainWindow : Window
     {
         InitializeComponent();
 #if DEBUG
-            this.AttachDevTools();
+        this.AttachDevTools();
 #endif
     }
 
@@ -89,13 +89,16 @@ public class MainWindow : Window
     }
 
 
-    private void CameraTextureWorker(){
-        while (!IsClosing){
+    private void CameraTextureWorker()
+    {
+        while (!IsClosing)
+        {
             Task.Delay(Delay).Wait();
             // For each available cam, get the current frame
-            for (int i = 0; i < cameraNmb; i++){
+            for (int i = 0; i < cameraNmb; i++)
+            {
                 if (i == 6) continue;
-                string actualct = (i+1).ToString();
+                string actualct = (i + 1).ToString();
                 string actualct1 = "imgCameraTexture" + actualct;
                 if (string.IsNullOrEmpty(camIds[i])) continue;
                 var cameraData = GrpcClient.GetCameraDataAsync(camIds[i]).Result;
@@ -132,7 +135,8 @@ public class MainWindow : Window
         }
     }
 
-    static bool ByteArrayCompare(ReadOnlySpan<byte> a1, ReadOnlySpan<byte> a2){
+    static bool ByteArrayCompare(ReadOnlySpan<byte> a1, ReadOnlySpan<byte> a2)
+    {
         return a1.SequenceEqual(a2);
     }
 
@@ -146,13 +150,13 @@ public class MainWindow : Window
             try
             {
                 List<string>? cameraIds = GrpcClient.GetCameraIds();
-                 if (cameraIds == null || cameraIds.Count == 0) Dispatcher.UIThread.InvokeAsync(NotifyWaitingForCameraFeed);
+                if (cameraIds == null || cameraIds.Count == 0) Dispatcher.UIThread.InvokeAsync(NotifyWaitingForCameraFeed);
 
                 Dispatcher.UIThread.InvokeAsync(() =>
                 {
                     if (cameraIds != null) UpdateCameraList(cameraIds);
                 });
-                
+
                 Dispatcher.UIThread.InvokeAsync(GetSelectedCamera).ContinueWith(selectedCamera =>
                 {
                     //_currentCamera = selectedCamera.Result;
@@ -169,7 +173,7 @@ public class MainWindow : Window
     {
         while (!IsClosing)
         {
-            Task.Delay(1000).Wait();
+            Task.Delay(500).Wait();
             // Resize panels and controls, only if changed
             Dispatcher.UIThread.InvokeAsync(() =>
         {
@@ -193,8 +197,11 @@ public class MainWindow : Window
                 var cc8 = this.FindControl<Canvas>("im8c");
                 var cc9 = this.FindControl<Canvas>("im9c");
                 var im7 = this.FindControl<Image>("im7");
+
                 var im8 = this.FindControl<Image>("ImgClose");
                 var im9 = this.FindControl<Image>("ImgResize");
+                var imbck = this.FindControl<Image>("background");
+
                 var cc1 = this.FindControl<Canvas>("c1");
                 var cc2 = this.FindControl<Canvas>("c2");
                 var cc3 = this.FindControl<Canvas>("c3");
@@ -231,6 +238,8 @@ public class MainWindow : Window
                 Canvas.SetLeft(txtCanvas, horizsnap);
                 txt1.Width = horizsnap;
                 txt1.Height = vertsnap / 3;
+                txt1.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Left;
+                txt1.VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center;
 
                 cc8.Width = 32;
                 cc8.Height = 32;
@@ -245,10 +254,15 @@ public class MainWindow : Window
                 im9.Width = 32;
                 im9.Height = 32;
 
+                imbck.Width = sizeW;
+                imbck.Height = vertsnap * 4;
+                imbck.Stretch = Avalonia.Media.Stretch.Fill;
+
                 labelCanvas.IsVisible = false;
                 cbCanvas.IsVisible = false;
 
-                if (cameraNmb == 1) {
+                if (cameraNmb < 2)
+                {
                     cc1.IsVisible = true;
                     cc2.IsVisible = false;
                     cc3.IsVisible = false;
@@ -305,7 +319,7 @@ public class MainWindow : Window
                     Canvas.SetTop(cc2, 0);
                     Canvas.SetLeft(cc2, sizeW / 3);
                     Canvas.SetTop(cc3, 0);
-                    Canvas.SetLeft(cc3, ((sizeW / 3) *2));
+                    Canvas.SetLeft(cc3, ((sizeW / 3) * 2));
                     im1.Width = sizeW / 3;
                     im1.Height = sizeW / 3;
                     im2.Width = sizeW / 3;
@@ -373,9 +387,9 @@ public class MainWindow : Window
                     Canvas.SetTop(cc3, 0);
                     Canvas.SetLeft(cc3, ((sizeW / 3) * 2));
                     Canvas.SetTop(cc4, vertsnap * 2);
-                    Canvas.SetLeft(cc4, 0);
+                    Canvas.SetLeft(cc4, ((sizeW / 2) - vertsnap * 2));
                     Canvas.SetTop(cc5, vertsnap * 2);
-                    Canvas.SetLeft(cc5, sizeW / 3);
+                    Canvas.SetLeft(cc5, (sizeW / 2));
                     im1.Width = vertsnap * 2;
                     im1.Height = vertsnap * 2;
                     im2.Width = vertsnap * 2;

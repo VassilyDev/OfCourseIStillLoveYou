@@ -2,33 +2,34 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1000" Width="1000" Height="800"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1000" Width="1000" Height="562"
         x:Class="OfCourseIStillLoveYou.DesktopClient.MainWindow"
         Title="OfCourseIStillLoveYou.DesktopClient" Name="MainWindow" SystemDecorations="None" CanResize="True" Closing="Window_OnClosing" >
 
 
   <Panel Background="Black"  >
     <Canvas Name="mc" Height="800" Width="800">
-    <Canvas Name="c1" Height="400" Width="400">
-      <Image Name="imgCameraTexture1" Height="400" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" PointerPressed="InputElement_OnPointerPressed" Source="/Assets/OfCourseIStillLoveYou.png" DoubleTapped="ImgCameraTexture_OnDoubleTapped"></Image>
-    </Canvas>
-    <Canvas Name="c2" Height="400" Width="400">
-      <Image Name="imgCameraTexture2" Height="400" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" PointerPressed="InputElement_OnPointerPressed" Source="/Assets/OfCourseIStillLoveYou.png" DoubleTapped="ImgCameraTexture_OnDoubleTapped"></Image>
-    </Canvas>
-    <Canvas Name="c3" Height="400" Width="400">
-      <Image Name="imgCameraTexture3" Height="400" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" PointerPressed="InputElement_OnPointerPressed" Source="/Assets/OfCourseIStillLoveYou.png" DoubleTapped="ImgCameraTexture_OnDoubleTapped"></Image>
-    </Canvas>
-    <Canvas Name="c4" Height="400" Width="400">
-      <Image Name="imgCameraTexture4" Height="400" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" PointerPressed="InputElement_OnPointerPressed" Source="/Assets/OfCourseIStillLoveYou.png" DoubleTapped="ImgCameraTexture_OnDoubleTapped"></Image>
-    </Canvas>
+      <Image Name="background" Height="800" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Assets/background.jpg"></Image>
+      <Canvas Name="c1" Height="400" Width="400">
+        <Image Name="imgCameraTexture1" Height="400" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" PointerPressed="InputElement_OnPointerPressed" Source="/Assets/OfCourseIStillLoveYou.png" DoubleTapped="ImgCameraTexture_OnDoubleTapped"></Image>
+      </Canvas>
+      <Canvas Name="c2" Height="400" Width="400">
+        <Image Name="imgCameraTexture2" Height="400" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" PointerPressed="InputElement_OnPointerPressed" Source="/Assets/OfCourseIStillLoveYou.png" DoubleTapped="ImgCameraTexture_OnDoubleTapped"></Image>
+      </Canvas>
+      <Canvas Name="c3" Height="400" Width="400">
+        <Image Name="imgCameraTexture3" Height="400" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" PointerPressed="InputElement_OnPointerPressed" Source="/Assets/OfCourseIStillLoveYou.png" DoubleTapped="ImgCameraTexture_OnDoubleTapped"></Image>
+      </Canvas>
+      <Canvas Name="c4" Height="400" Width="400">
+        <Image Name="imgCameraTexture4" Height="400" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" PointerPressed="InputElement_OnPointerPressed" Source="/Assets/OfCourseIStillLoveYou.png" DoubleTapped="ImgCameraTexture_OnDoubleTapped"></Image>
+      </Canvas>
       <Canvas Name="c5" Height="400" Width="400">
         <Image Name="imgCameraTexture5" Height="400" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" PointerPressed="InputElement_OnPointerPressed" Source="/Assets/OfCourseIStillLoveYou.png" DoubleTapped="ImgCameraTexture_OnDoubleTapped"></Image>
       </Canvas>
       <Canvas Name="c6" Height="400" Width="400">
         <Image Name="imgCameraTexture6" Height="400" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" PointerPressed="InputElement_OnPointerPressed" Source="/Assets/OfCourseIStillLoveYou.png" DoubleTapped="ImgCameraTexture_OnDoubleTapped"></Image>
       </Canvas>
-      
-        
+
+
       <Canvas Name="ic" Height="400" Width="800">
         <Canvas Name="im7c" Height="400" Width="400">
           <Image Name="im7" Height="400" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Assets/maxresdefault.png"></Image>
@@ -40,28 +41,23 @@
           <Image Name="ImgResize" Height="32" Width="32" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Assets/resizeSquare.png" PointerPressed="ImgResize_OnPointerPressed"></Image>
         </Canvas>
         <Canvas Name="ic1" Height="32" Width="32">
-          <TextBlock Name="TextInfo" Text="SPEEED ALTITUDE" TextWrapping="Wrap" MaxWidth="400" FontFamily="Bahnschrift Semibold"  TextAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"></TextBlock>
+          <TextBlock Name="TextInfo" Text="SPEEED ALTITUDE" Foreground="White" TextWrapping="Wrap" MaxWidth="400" FontFamily="Bahnschrift Semibold"  TextAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"></TextBlock>
         </Canvas>
-        
+
         <Canvas Name="ic2" Height="32" Width="32">
-         <Label Name="LabelCameras" Content="SELECT A CAMERA" Foreground="White" FontSize="14" FontFamily="Bahnschrift Semibold" FontWeight="400"></Label>
+          <Label Name="LabelCameras" Content="SELECT A CAMERA" Foreground="White" FontSize="14" FontFamily="Bahnschrift Semibold" FontWeight="400"></Label>
         </Canvas>
         <Canvas Name="ic3" Height="32" Width="32">
-         <ComboBox Name="CbCameras" Margin="5,0,0,0" MinWidth="150" FontFamily="Bahnschrift Semibold"></ComboBox>
-        </Canvas>   
+          <ComboBox Name="CbCameras" Margin="5,0,0,0" MinWidth="150" FontFamily="Bahnschrift Semibold"></ComboBox>
+        </Canvas>
       </Canvas>
     </Canvas>
-      
-    
-    <DockPanel  Margin="10" ClipToBounds="True" >
-      
-    </DockPanel>
 
     <Label Foreground="White" FontSize="34" Margin="50" FontFamily="Bahnschrift Semibold" FontWeight="400" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-        
+
     </Label>
-      
-      
+
+
   </Panel>
 
 </Window>

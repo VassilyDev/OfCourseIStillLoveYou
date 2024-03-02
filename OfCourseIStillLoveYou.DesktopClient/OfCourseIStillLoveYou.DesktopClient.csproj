@@ -1,18 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ApplicationIcon>icon_ES0_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.10.12" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.10.12" />
-    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.12" />
+    <PackageReference Include="Avalonia" Version="0.10.14" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.14" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.14" />
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Grpc.Core" Version="2.46.3" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.46.0" />
    </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\OfCourseIStillLoveYou.Communication\OfCourseIStillLoveYou.Communication.csproj" />
-  </ItemGroup>
   <ItemGroup>
     <None Update="icon_ES0_icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -26,5 +29,12 @@
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\background.jpg" />
+    <None Remove="Assets\maxresdefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OfCourseIStillLoveYou.Communication\OfCourseIStillLoveYou.Communication.csproj" />
   </ItemGroup>
 </Project>
